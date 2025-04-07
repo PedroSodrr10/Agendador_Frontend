@@ -1,0 +1,19 @@
+.footer {
+  height: 4%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #79beff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  color: #fff;
+  margin: 0;
+  font-size: 1rem;
+  padding: 0 8%;
+  border-radius: 20px;
+  background-color: #7a7a7a;
+}
