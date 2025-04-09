@@ -8,14 +8,17 @@ import { Contatos } from '../models/contatos';
   providedIn: 'root'
 })
 export class ContatoService {
-baseUrl: String = "http://localhost:8080/api/Agendador";
+  baseUrl: string = "http://localhost:8080/api/contatos";
+
 
   constructor(
     private http : HttpClient,
     private snack: MatSnackBar) { }
 
-    listarTodos():Observable<Contatos[]> {
-      const url = this.baseUrl + "/contatos";
-      return this.http.get<Contatos[]>(url);
+    listarTodos(): Observable<{ content: Contatos[] }> {
+      return this.http.get<{ content: Contatos[] }>(this.baseUrl);
     }
+
+
+
 }

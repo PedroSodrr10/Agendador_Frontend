@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Contatos } from 'src/app/models/contatos';
@@ -9,7 +9,7 @@ import { ContatoService } from 'src/app/service/contato.service';
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.scss']
 })
-export class TabelaComponent implements AfterViewInit {
+export class TabelaComponent implements OnInit {
 
   contato: Contatos[] = [];
 
@@ -27,16 +27,18 @@ export class TabelaComponent implements AfterViewInit {
 
   constructor(private service: ContatoService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
+    this.findAll();
   }
 
   findAll(): void {
     this.service.listarTodos().subscribe((resposta) => {
-      this.contato = resposta;
+      this.contato = resposta.content; // <-- aqui!
       this.dataSource = new MatTableDataSource<Contatos>(this.contato);
       this.dataSource.paginator = this.paginator;
     });
   }
+
 
 
 }

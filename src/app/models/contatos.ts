@@ -1,9 +1,19 @@
-export interface Contatos{
-  id?: any;
-  nome: String;
-  cpf: String;
-  cnpj: String;
-  email: String;
-  telefone: String;
-  endereco: String;
+export interface Endereco {
+  cep: string;
+  logradouro: string;
+  cidade: string;
+  estado: string;
+  numero: string;
+  complemento?: string;
+}
+
+export interface Contatos {
+  id: number;
+  nome: string;
+  cpf: string;
+  cnpj?: string;
+  email: string;
+  telefone: string;
+  tipoPessoa: string;
+  endereco: Endereco;
 }
