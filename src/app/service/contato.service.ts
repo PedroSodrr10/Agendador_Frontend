@@ -15,10 +15,12 @@ export class ContatoService {
     private http : HttpClient,
     private snack: MatSnackBar) { }
 
-    listarTodos(): Observable<{ content: Contatos[] }> {
-      return this.http.get<{ content: Contatos[] }>(this.baseUrl);
+    listarTodos(page: number, size: number): Observable<any> {
+      const url = `${this.baseUrl}?page=${page}&size=${size}`;
+      return this.http.get<any>(url);
     }
 
-
-
+    salvar(contato: any): Observable<Contatos> {
+      return this.http.post<Contatos>(this.baseUrl, contato);
+    }
 }

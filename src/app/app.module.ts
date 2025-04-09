@@ -12,10 +12,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { TabelaComponent } from './view/components/conteudo/tabela/tabela.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TabelaComponent } from './view/components/conteudo/tabela/tabela.component';
+import { CadastroComponent } from './view/components/conteudo/cadastro/cadastro.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     FooterComponent,
     TabComponent,
-    TabelaComponent
+    TabelaComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +45,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatPaginatorModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,31 @@
+.container {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  background-color: #272727;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+td.mat-cell {
+  color: #333;
+}
+
+.mat-header-row,
+.mat-row {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+mat-paginator {
+  margin-top: 1.5rem;
+}
