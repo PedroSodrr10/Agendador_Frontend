@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContatoService } from 'src/app/service/contato.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss']
 })
+
 export class CadastroComponent implements OnInit {
   form!: FormGroup;
+
+  @Output() salvo = new EventEmitter<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +42,9 @@ export class CadastroComponent implements OnInit {
   }
 
   salvar(): void {
+    console.log('Form:', this.form.value);
+    console.log('É válido?', this.form.valid);
+
     if (this.form.invalid) {
       this.snack.open('Preencha todos os campos obrigatórios', 'OK', { duration: 3000 });
       return;
@@ -46,6 +53,7 @@ export class CadastroComponent implements OnInit {
     this.service.salvar(this.form.value).subscribe(() => {
       this.snack.open('Contato salvo com sucesso!', 'OK', { duration: 3000 });
       this.form.reset();
+      this.salvo.emit();
     });
   }
 }

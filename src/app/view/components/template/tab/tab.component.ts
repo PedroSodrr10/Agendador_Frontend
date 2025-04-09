@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
+  selectedTab = 0;
+
+  aoSalvar(): void {
+    this.selectedTab = 0;
+  }
 
 }
